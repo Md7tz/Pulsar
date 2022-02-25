@@ -27,9 +27,15 @@
     <ClInclude Include="src\Pulsar\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Pulsar\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pulsar\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Pulsar\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
