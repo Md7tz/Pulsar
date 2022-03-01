@@ -4,6 +4,9 @@
     <Filter Include="Pulsar">
       <UniqueIdentifier>{1C19FECA-08BB-28A1-F175-3CF5DDB6AFF1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pulsar\Events">
+      <UniqueIdentifier>{80EDB0D1-ECAD-2C08-B5E8-7585216871E4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pulsar.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Pulsar\EntryPoint.h">
       <Filter>Pulsar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pulsar\Events\ApplicationEvent.h">
+      <Filter>Pulsar\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pulsar\Events\Event.h">
+      <Filter>Pulsar\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pulsar\Events\KeyEvent.h">
+      <Filter>Pulsar\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pulsar\Events\MouseEvent.h">
+      <Filter>Pulsar\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Pulsar\Log.h">
       <Filter>Pulsar</Filter>

@@ -15,8 +15,8 @@ project "Pulsar"
 	kind "SharedLib"
 	language "C++"
 
-	targetdir("bin/" .. outputdir .. "/%{prj.name}")
-	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("!bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files 
 	{
@@ -26,6 +26,7 @@ project "Pulsar"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 
@@ -66,8 +67,8 @@ project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 
-	targetdir("bin/" .. outputdir .. "/%{prj.name}")
-	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("!bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files 
 	{
@@ -77,8 +78,8 @@ project "Sandbox"
 
 	includedirs 
 	{
-		"Pulsar/vendor/spdlog/include",
-		"Pulsar/src"
+		"Pulsar/src",
+		"Pulsar/vendor/spdlog/include"
 	}
 
 	links 
@@ -97,8 +98,8 @@ project "Sandbox"
 		}
 
 	filter "configurations:Debug"
-	defines "PR_DEBUG"
-	symbols "On"
+		defines "PR_DEBUG"
+		symbols "On"
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"
