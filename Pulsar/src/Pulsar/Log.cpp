@@ -1,3 +1,4 @@
+#include "prpch.h"
 #include "Log.h"
 
 namespace Pulsar {

@@ -18,6 +18,9 @@ project "Pulsar"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("!bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "prpch.h"
+	pchsource "Pulsar/src/prpch.cpp"
+
 	files 
 	{
 		"%{prj.name}/src/**.h",

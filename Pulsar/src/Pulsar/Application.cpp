@@ -1,3 +1,4 @@
+#include "prpch.h"
 #include "Application.h"
 
 #include "Pulsar/Events/ApplicationEvent.h"
@@ -17,7 +18,7 @@ namespace Pulsar {
 	{
 		WindowResizeEvent e(1280, 720);
 
-		if (e.IsInCategory(EventCategoryApplication)) 
+		if (e.IsInCategory(EventCategoryApplication))
 		{
 			PR_TRACE(e);
 		}

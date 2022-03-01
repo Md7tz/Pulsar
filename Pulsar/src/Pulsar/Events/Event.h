@@ -2,9 +2,6 @@
 
 #include "Pulsar\Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Pulsar {
 
 	// Events are blocking and gets dispatched and must be 

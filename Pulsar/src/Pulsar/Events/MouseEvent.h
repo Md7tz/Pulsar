@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Pulsar {
 
 	class PULSAR_API MouseMovedEvent : public Event 

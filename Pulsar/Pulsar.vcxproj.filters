@@ -34,6 +34,7 @@
     <ClInclude Include="src\Pulsar\Log.h">
       <Filter>Pulsar</Filter>
     </ClInclude>
+    <ClInclude Include="src\prpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pulsar\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Pulsar\Log.cpp">
       <Filter>Pulsar</Filter>
     </ClCompile>
+    <ClCompile Include="src\prpch.cpp" />
   </ItemGroup>
 </Project>
