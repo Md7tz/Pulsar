@@ -4,10 +4,13 @@
 #include "Pulsar/Events/ApplicationEvent.h"
 #include "Pulsar/Log.h"
 
+#include <GLFW/glfw3.h>
+
 namespace Pulsar {
 
 	Application::Application() 
 	{
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -16,17 +19,11 @@ namespace Pulsar {
 
 	void Application::Run() 
 	{
-		WindowResizeEvent e(1280, 720);
-
-		if (e.IsInCategory(EventCategoryApplication))
+		while (m_Running) 
 		{
-			PR_TRACE(e);
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
 		}
-		if (e.IsInCategory(EventCategoryInput))
-		{
-			PR_TRACE(e);
-		}
-
-		while (true);
 	}
 }

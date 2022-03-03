@@ -1,5 +1,6 @@
 workspace "Pulsar"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations 
 	{
@@ -9,6 +10,12 @@ workspace "Pulsar"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+-- Include directories relative to root folder (sln)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Pulsar/vendor/GLFW/include"
+
+include "Pulsar/vendor/GLFW"
 
 project "Pulsar"
 	location "Pulsar" 
@@ -30,7 +37,14 @@ project "Pulsar"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links 
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

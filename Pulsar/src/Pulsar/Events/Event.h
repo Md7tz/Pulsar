@@ -1,5 +1,6 @@
 #pragma once
 
+#include "prpch.h"
 #include "Pulsar\Core.h"
 
 namespace Pulsar {

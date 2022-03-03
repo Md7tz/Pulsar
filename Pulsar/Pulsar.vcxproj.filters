@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Pulsar">
       <UniqueIdentifier>{1C19FECA-08BB-28A1-F175-3CF5DDB6AFF1}</UniqueIdentifier>
     </Filter>
@@ -9,6 +12,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\WindowsWindow.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
     <ClInclude Include="src\Pulsar.h" />
     <ClInclude Include="src\Pulsar\Application.h">
       <Filter>Pulsar</Filter>
@@ -34,9 +40,15 @@
     <ClInclude Include="src\Pulsar\Log.h">
       <Filter>Pulsar</Filter>
     </ClInclude>
+    <ClInclude Include="src\Pulsar\Window.h">
+      <Filter>Pulsar</Filter>
+    </ClInclude>
     <ClInclude Include="src\prpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\WindowsWindow.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
     <ClCompile Include="src\Pulsar\Application.cpp">
       <Filter>Pulsar</Filter>
     </ClCompile>

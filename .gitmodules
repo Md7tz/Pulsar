@@ -1,0 +1,9 @@
+[submodule "Pulsar/vendor/spdlog"]
+	path = Pulsar/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "Pulsar/vendor/GLFW"]
+	path = Pulsar/vendor/GLFW
+	url = https://github.com/Md7tz/glfw
+[submodule "pulsar/vendor/spdlog"]
+	path = pulsar/vendor/spdlog
+	url = https://github.com/gabime/spdlog
