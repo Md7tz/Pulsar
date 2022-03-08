@@ -150,7 +150,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Platform\WindowsWindow.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Pulsar.h" />
     <ClInclude Include="src\Pulsar\Application.h" />
     <ClInclude Include="src\Pulsar\Core.h" />
@@ -164,7 +164,7 @@
     <ClInclude Include="src\prpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\WindowsWindow.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Pulsar\Application.cpp" />
     <ClCompile Include="src\Pulsar\Log.cpp" />
     <ClCompile Include="src\prpch.cpp">
