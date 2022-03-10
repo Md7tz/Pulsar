@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -109,7 +110,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/MT %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -136,6 +137,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -159,6 +161,8 @@
     <ClInclude Include="src\Pulsar\Events\Event.h" />
     <ClInclude Include="src\Pulsar\Events\KeyEvent.h" />
     <ClInclude Include="src\Pulsar\Events\MouseEvent.h" />
+    <ClInclude Include="src\Pulsar\Layer.h" />
+    <ClInclude Include="src\Pulsar\LayerStack.h" />
     <ClInclude Include="src\Pulsar\Log.h" />
     <ClInclude Include="src\Pulsar\Window.h" />
     <ClInclude Include="src\prpch.h" />
@@ -166,6 +170,8 @@
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Pulsar\Application.cpp" />
+    <ClCompile Include="src\Pulsar\Layer.cpp" />
+    <ClCompile Include="src\Pulsar\LayerStack.cpp" />
     <ClCompile Include="src\Pulsar\Log.cpp" />
     <ClCompile Include="src\prpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

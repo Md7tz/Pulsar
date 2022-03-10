@@ -65,18 +65,17 @@ project "Pulsar"
 
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
-		optimize "On"
-
-	filter { "system:windows", "configurations:Release" }
-		buildoptions "/MT"
+		buildoptions "/MDd"
 		optimize "On"
 
 project "Sandbox"
@@ -116,12 +115,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
+		buildoptions "/MD"
 		optimize "On"
