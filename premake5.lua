@@ -23,7 +23,7 @@ project "Pulsar"
 	language "C++"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("!bin-int/" .. outputdir .. "/%{prj.name}")
+	objdir ("!obj/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "prpch.h"
 	pchsource "Pulsar/src/prpch.cpp"
@@ -49,7 +49,7 @@ project "Pulsar"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "Off"
 		systemversion "latest"
 
 		defines 
@@ -58,15 +58,21 @@ project "Pulsar"
 			"PR_BUILD_DLL"	
 		}
 
-	postbuildcommands 
-	{
-		("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-	}
+		postbuildcommands 
+		{
+			("{MKDIR} %{wks.location}bin/" .. outputdir .. "/Sandbox"),
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+		}
 
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
 		buildoptions "/MDd"
 		symbols "On"
+		
+		defines 
+		{
+			"PR_ENABLE_ASSERTS"
+		}
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"
@@ -75,7 +81,7 @@ project "Pulsar"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
-		buildoptions "/MDd"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -84,7 +90,7 @@ project "Sandbox"
 	language "C++"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("!bin-int/" .. outputdir .. "/%{prj.name}")
+	objdir ("!obj/" .. outputdir .. "/%{prj.name}")
 
 	files 
 	{
@@ -105,7 +111,7 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "off"
 		systemversion "latest"
 
 		defines 
@@ -117,6 +123,11 @@ project "Sandbox"
 		defines "PR_DEBUG"
 		buildoptions "/MDd"
 		symbols "On"
+
+		defines 
+		{
+			"PR_ENABLE_ASSERTS"
+		}
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"

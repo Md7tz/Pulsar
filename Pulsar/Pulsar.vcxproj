@@ -56,21 +56,21 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\bin\Debug-windows-x86_64\Pulsar\</OutDir>
-    <IntDir>..\bin-int\Debug-windows-x86_64\Pulsar\</IntDir>
+    <IntDir>..\obj\Debug-windows-x86_64\Pulsar\</IntDir>
     <TargetName>Pulsar</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\Release-windows-x86_64\Pulsar\</OutDir>
-    <IntDir>..\bin-int\Release-windows-x86_64\Pulsar\</IntDir>
+    <IntDir>..\obj\Release-windows-x86_64\Pulsar\</IntDir>
     <TargetName>Pulsar</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\Dist-windows-x86_64\Pulsar\</OutDir>
-    <IntDir>..\bin-int\Dist-windows-x86_64\Pulsar\</IntDir>
+    <IntDir>..\obj\Dist-windows-x86_64\Pulsar\</IntDir>
     <TargetName>Pulsar</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
@@ -79,11 +79,11 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>prpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PR_PLATFORM_WINDOWS;PR_BUILD_DLL;PR_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PR_PLATFORM_WINDOWS;PR_BUILD_DLL;PR_DEBUG;PR_ENABLE_ASSERTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -94,7 +94,8 @@
       <ImportLibrary>..\bin\Debug-windows-x86_64\Pulsar\Pulsar.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF NOT EXIST $(SolutionDir)bin\Debug-windows-x86_64\Sandbox (mkdir $(SolutionDir)bin\Debug-windows-x86_64\Sandbox)
+IF EXIST ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -109,7 +110,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -121,7 +122,8 @@
       <ImportLibrary>..\bin\Release-windows-x86_64\Pulsar\Pulsar.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF NOT EXIST $(SolutionDir)bin\Release-windows-x86_64\Sandbox (mkdir $(SolutionDir)bin\Release-windows-x86_64\Sandbox)
+IF EXIST ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -136,8 +138,8 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -148,7 +150,8 @@
       <ImportLibrary>..\bin\Dist-windows-x86_64\Pulsar\Pulsar.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF NOT EXIST $(SolutionDir)bin\Dist-windows-x86_64\Sandbox (mkdir $(SolutionDir)bin\Dist-windows-x86_64\Sandbox)
+IF EXIST ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
