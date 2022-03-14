@@ -12,10 +12,12 @@ workspace "Pulsar"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder (sln)
-IncludeDir = {}
-IncludeDir["GLFW"] = "Pulsar/vendor/GLFW/include"
+IncludeDirs = {}
+IncludeDirs["GLFW"] = "Pulsar/vendor/GLFW/include"
+IncludeDirs["Glad"] = "Pulsar/vendor/Glad/include"
 
 include "Pulsar/vendor/GLFW"
+include "Pulsar/vendor/Glad"
 
 project "Pulsar"
 	location "Pulsar" 
@@ -38,12 +40,14 @@ project "Pulsar"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDirs.GLFW}",
+		"%{IncludeDirs.Glad}"
 	}
 
 	links 
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -55,7 +59,8 @@ project "Pulsar"
 		defines 
 		{
 			"PR_PLATFORM_WINDOWS",
-			"PR_BUILD_DLL"	
+			"PR_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"	
 		}
 
 		postbuildcommands 

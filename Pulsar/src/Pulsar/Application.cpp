@@ -1,9 +1,8 @@
 #include "prpch.h"
 #include "Application.h"
 
-#include "Pulsar/Log.h"
+#include <Glad/glad.h>
 
-#include <GLFW/glfw3.h>
 namespace Pulsar {
 
 	#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)

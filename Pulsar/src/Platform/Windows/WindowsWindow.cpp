@@ -5,6 +5,7 @@
 #include "Pulsar/Events/KeyEvent.h"
 #include "Pulsar/Events/MouseEvent.h"
 
+#include "Glad/glad.h"
 
 namespace Pulsar {
 
@@ -64,8 +65,8 @@ namespace Pulsar {
 		if (!s_GLFWInitialized)
 		{
 			// TODO: glfwTerminate on system shutdown
-			int success = glfwInit();
-			PR_CORE_ASSERT(success, "Could not initialize GLFW");
+			int status = glfwInit();
+			PR_CORE_ASSERT(status, "Failed to initialize GLFW");
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
@@ -73,6 +74,8 @@ namespace Pulsar {
 
 		/* Make the window's context current */
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		PR_CORE_ASSERT(status, "Failed to initialize Glad")
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 
 		SetVSync(true);
