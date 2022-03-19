@@ -4,3 +4,6 @@
 [submodule "Pulsar/vendor/GLFW"]
 	path = Pulsar/vendor/GLFW
 	url = https://github.com/Md7tz/glfw
+[submodule "Pulsar/vendor/ImGui"]
+	path = Pulsar/vendor/ImGui
+	url = https://github.com/Md7tz/imgui.git
