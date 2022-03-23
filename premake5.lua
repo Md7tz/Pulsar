@@ -15,7 +15,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDirs = {}
 IncludeDirs["GLFW"] = "Pulsar/vendor/GLFW/include"
 IncludeDirs["Glad"] = "Pulsar/vendor/Glad/include"
-IncludeDirs["ImGui"] = "Pulsar/vendor/ImGui/include"
+IncludeDirs["ImGui"] = "Pulsar/vendor/ImGui"
 
 include "Pulsar/vendor/GLFW"
 include "Pulsar/vendor/Glad"

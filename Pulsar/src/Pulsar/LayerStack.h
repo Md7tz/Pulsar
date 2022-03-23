@@ -5,7 +5,7 @@
 
 namespace Pulsar {
 
-	class LayerStack
+	class PULSAR_API LayerStack
 	{
 	public:
 		LayerStack();

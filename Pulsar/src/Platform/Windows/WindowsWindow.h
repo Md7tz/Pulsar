@@ -6,7 +6,7 @@
 
 namespace Pulsar {
 
-	class WindowsWindow : public Window
+	class PULSAR_API WindowsWindow : public Window
 	{
 	public:
 		WindowsWindow(const WindowProps& props);
