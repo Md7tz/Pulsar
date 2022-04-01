@@ -24,6 +24,7 @@ include "Pulsar/vendor/ImGui"
 project "Pulsar"
 	location "Pulsar" 
 	kind "SharedLib"
+	staticruntime "Off"
 	language "C++"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -57,7 +58,6 @@ project "Pulsar"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "Off"
 		systemversion "latest"
 
 		defines 
@@ -75,7 +75,7 @@ project "Pulsar"
 
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 		
 		defines 
@@ -85,17 +85,18 @@ project "Pulsar"
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
+	staticruntime "Off"
 	language "C++"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -120,7 +121,7 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "off"
+		staticruntime "Off"
 		systemversion "latest"
 
 		defines 
@@ -130,20 +131,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
-
-		defines 
-		{
-			"PR_ENABLE_ASSERTS"
-		}
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"

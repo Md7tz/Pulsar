@@ -8,7 +8,7 @@ public:
 
 	void OnUpdate() override 
 	{
-		PR_INFO("ExampleLayer::Update");
+		//PR_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Pulsar::Event& event) override 
