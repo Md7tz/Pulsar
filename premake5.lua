@@ -17,9 +17,10 @@ IncludeDirs["GLFW"] = "Pulsar/vendor/GLFW/include"
 IncludeDirs["Glad"] = "Pulsar/vendor/Glad/include"
 IncludeDirs["ImGui"] = "Pulsar/vendor/ImGui"
 
-include "Pulsar/vendor/GLFW"
-include "Pulsar/vendor/Glad"
-include "Pulsar/vendor/ImGui"
+group "Dependencies"
+	include "Pulsar/vendor/GLFW"
+	include "Pulsar/vendor/Glad"
+	include "Pulsar/vendor/ImGui"
 
 project "Pulsar"
 	location "Pulsar" 
@@ -69,8 +70,7 @@ project "Pulsar"
 
 		postbuildcommands 
 		{
-			("{MKDIR} %{wks.location}bin/" .. outputdir .. "/Sandbox"),
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"

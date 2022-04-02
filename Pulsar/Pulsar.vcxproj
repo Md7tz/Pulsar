@@ -93,8 +93,7 @@
       <ImportLibrary>..\bin\Debug-windows-x86_64\Pulsar\Pulsar.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF NOT EXIST $(SolutionDir)bin\Debug-windows-x86_64\Sandbox (mkdir $(SolutionDir)bin\Debug-windows-x86_64\Sandbox)
-IF EXIST ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -120,8 +119,7 @@ IF EXIST ..\bin\Debug-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bi
       <ImportLibrary>..\bin\Release-windows-x86_64\Pulsar\Pulsar.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF NOT EXIST $(SolutionDir)bin\Release-windows-x86_64\Sandbox (mkdir $(SolutionDir)bin\Release-windows-x86_64\Sandbox)
-IF EXIST ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -147,12 +145,12 @@ IF EXIST ..\bin\Release-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\
       <ImportLibrary>..\bin\Dist-windows-x86_64\Pulsar\Pulsar.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF NOT EXIST $(SolutionDir)bin\Dist-windows-x86_64\Sandbox (mkdir $(SolutionDir)bin\Dist-windows-x86_64\Sandbox)
-IF EXIST ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Pulsar.h" />
     <ClInclude Include="src\Pulsar\Application.h" />
@@ -163,6 +161,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin
     <ClInclude Include="src\Pulsar\Events\KeyEvent.h" />
     <ClInclude Include="src\Pulsar\Events\MouseEvent.h" />
     <ClInclude Include="src\Pulsar\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Pulsar\Input.h" />
     <ClInclude Include="src\Pulsar\Layer.h" />
     <ClInclude Include="src\Pulsar\LayerStack.h" />
     <ClInclude Include="src\Pulsar\Log.h" />
@@ -171,6 +170,7 @@ IF EXIST ..\bin\Dist-windows-x86_64\Pulsar\Pulsar.dll\ (xcopy /Q /E /Y /I ..\bin
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Pulsar\Application.cpp" />
     <ClCompile Include="src\Pulsar\ImGui\ImGuiLayer.cpp" />
