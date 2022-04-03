@@ -8,16 +8,19 @@ public:
 
 	void OnUpdate() override 
 	{
-		//PR_INFO("ExampleLayer::Update");
+		if (Pulsar::Input::IsKeyPressed(PR_KEY_TAB))
+			PR_TRACE("Tab Key Pressed");
 	}
 
 	void OnEvent(Pulsar::Event& event) override 
 	{
-		PR_TRACE("{0}", event);
+		if (event.GetEventType() == Pulsar::EventType::KeyPressed) 
+		{
+			Pulsar::KeyPressedEvent& e = (Pulsar::KeyPressedEvent&)event;
+			PR_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
-
-
 
 class Sandbox : public Pulsar::Application 
 {

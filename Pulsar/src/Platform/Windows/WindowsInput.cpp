@@ -24,7 +24,7 @@ namespace Pulsar {
 		return state == GLFW_PRESS;
 	}
 
-	std::pair<float, float> WindowsInput::GetMousePositionImpl() const
+	std::pair<float, float> WindowsInput::GetMousePositionImpl()
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double xpos, ypos;
@@ -33,13 +33,13 @@ namespace Pulsar {
 		return { (float)xpos, (float)ypos };
 	}
 
-	float WindowsInput::GetMouseXImpl() const
+	float WindowsInput::GetMouseXImpl()
 	{
 		auto [x, _] = GetMousePositionImpl();
 		return x;
 	}
 
-	float WindowsInput::GetMouseYImpl() const
+	float WindowsInput::GetMouseYImpl()
 	{
 		auto [_, y] = GetMousePositionImpl();
 		return y;

@@ -71,6 +71,8 @@
       <Filter>Pulsar</Filter>
     </ClInclude>
     <ClInclude Include="src\prpch.h" />
+    <ClInclude Include="src\Pulsar\KeyCodes.h" />
+    <ClInclude Include="src\Pulsar\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">

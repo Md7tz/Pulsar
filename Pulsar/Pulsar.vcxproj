@@ -162,9 +162,11 @@
     <ClInclude Include="src\Pulsar\Events\MouseEvent.h" />
     <ClInclude Include="src\Pulsar\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Pulsar\Input.h" />
+    <ClInclude Include="src\Pulsar\KeyCodes.h" />
     <ClInclude Include="src\Pulsar\Layer.h" />
     <ClInclude Include="src\Pulsar\LayerStack.h" />
     <ClInclude Include="src\Pulsar\Log.h" />
+    <ClInclude Include="src\Pulsar\MouseButtonCodes.h" />
     <ClInclude Include="src\Pulsar\Window.h" />
     <ClInclude Include="src\prpch.h" />
   </ItemGroup>

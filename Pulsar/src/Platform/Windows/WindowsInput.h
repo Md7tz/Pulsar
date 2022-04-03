@@ -8,9 +8,9 @@ namespace Pulsar {
 	protected:
 		virtual bool IsKeyPressedImpl(int keycode) override;
 		virtual bool IsMousePressedImpl(int button) override;
-		virtual std::pair<float, float> GetMousePositionImpl() const override;
-		virtual float GetMouseXImpl() const override;
-		virtual float GetMouseYImpl() const override;
+		virtual std::pair<float, float> GetMousePositionImpl() override;
+		virtual float GetMouseXImpl() override;
+		virtual float GetMouseYImpl() override;
 	};
 }
 

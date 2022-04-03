@@ -15,9 +15,9 @@ namespace Pulsar {
 	protected:
 		virtual bool IsKeyPressedImpl(int keycode) = 0;
 		virtual bool IsMousePressedImpl(int button) = 0;
-		virtual std::pair<float, float> GetMousePositionImpl() const = 0;
-		virtual float GetMouseXImpl() const = 0;
-		virtual float GetMouseYImpl() const = 0;
+		virtual std::pair<float, float> GetMousePositionImpl() = 0;
+		virtual float GetMouseXImpl() = 0;
+		virtual float GetMouseYImpl() = 0;
 
 	private:
 		static Input* s_Instance;
