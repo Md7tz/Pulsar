@@ -16,6 +16,7 @@ IncludeDirs = {}
 IncludeDirs["GLFW"] = "Pulsar/vendor/GLFW/include"
 IncludeDirs["Glad"] = "Pulsar/vendor/Glad/include"
 IncludeDirs["ImGui"] = "Pulsar/vendor/ImGui"
+IncludeDirs["glm"] = "Pulsar/vendor/glm"
 
 group "Dependencies"
 	include "Pulsar/vendor/GLFW"
@@ -37,7 +38,9 @@ project "Pulsar"
 	files 
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -46,7 +49,8 @@ project "Pulsar"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDirs.GLFW}",
 		"%{IncludeDirs.Glad}",
-		"%{IncludeDirs.ImGui}"
+		"%{IncludeDirs.ImGui}",
+		"%{IncludeDirs.glm}"
 	}
 
 	links 
@@ -111,7 +115,8 @@ project "Sandbox"
 	includedirs 
 	{
 		"Pulsar/src",
-		"Pulsar/vendor/spdlog/include"
+		"Pulsar/vendor/spdlog/include",
+		"%{IncludeDirs.glm}"
 	}
 
 	links 
